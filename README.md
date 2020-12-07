@@ -7,6 +7,7 @@
   - imports images, fonts
   - copies files from `static` directory
   - [fast refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin)
+  - bundle analyzer
 - React
   - [new JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) (no need to import react for using jsx)
 - Babel
@@ -34,4 +35,5 @@ npm start       # start a dev server
 npm run build   # production build, goes into dist folder
 npm run lint    # fixes all fixable js problems
 npm run format  # formats data files (json, yml, md)
+npm run analyze # helps to inspect the bundle content
 ```
