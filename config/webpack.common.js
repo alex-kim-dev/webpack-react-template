@@ -59,4 +59,11 @@ module.exports = {
       },
     ],
   },
+
+  resolve: {
+    // for suggestions in Vscode add these paths to the `jsconfig.json`
+    alias: {
+      '@': path.resolve(__dirname, '../src'),
+    },
+  },
 };
