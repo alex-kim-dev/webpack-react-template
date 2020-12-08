@@ -4,7 +4,8 @@
 
 - Webpack 5
   - html template
-  - imports images, fonts
+  - imports images, fonts, css
+  - extracts and minifies css for production build
   - copies files from `static` directory
   - [fast refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin)
   - bundle analyzer
