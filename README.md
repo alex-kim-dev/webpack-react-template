@@ -5,7 +5,8 @@
 - Webpack 5
   - html template
   - imports images, fonts, css
-  - extracts and minifies css for production build
+    - SVG images in `src/images/embed` are imported as React components
+    - extracts and minifies css for production build
   - copies files from `static` directory
   - [fast refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin)
   - bundle analyzer

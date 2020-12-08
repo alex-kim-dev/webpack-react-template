@@ -56,7 +56,13 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        exclude: path.resolve(__dirname, '../src/images/embed'),
         type: 'asset/inline',
+      },
+      {
+        test: /\.svg$/,
+        include: path.resolve(__dirname, '../src/images/embed'),
+        use: ['@svgr/webpack'],
       },
     ],
   },
