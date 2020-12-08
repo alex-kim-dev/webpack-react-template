@@ -13,10 +13,6 @@ rules:
   simple-import-sort/exports: error
   sort-imports: off
   import/order: off
-  import/no-extraneous-dependencies:
-    - error
-    - devDependencies:
-        - config/webpack.*.js
   react/react-in-jsx-scope: off
 
 overrides:
@@ -26,6 +22,7 @@ overrides:
       import/order:
         - error
         - newlines-between: always
+      import/no-extraneous-dependencies: off
 
 settings:
   import/resolver:
