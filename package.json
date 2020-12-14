@@ -8,11 +8,11 @@
   "bugs": "https://github.com/Alex-K1m/webpack-react-template/issues",
   "main": "index.js",
   "scripts": {
-    "analyze": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js --analyze",
-    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
+    "analyze": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js --analyze",
+    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
     "format": "prettier --write \"**/*.{json,md,yml}\"",
     "lint": "eslint --fix --ext={js,jsx} .",
-    "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
+    "start": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
