@@ -33,6 +33,11 @@ module.exports = merge(common, {
           options: { plugins: [ReactRefreshBabelPlugin] },
         },
       },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
+
 });
