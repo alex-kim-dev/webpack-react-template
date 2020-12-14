@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-template",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Webpack 5 template for React projects.",
   "license": "MIT",
   "repository": "git@github.com:Alex-K1m/webpack-react-template.git",
