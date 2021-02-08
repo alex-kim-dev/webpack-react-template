@@ -8,7 +8,7 @@
   "bugs": "https://github.com/Alex-K1m/webpack-react-template/issues",
   "main": "index.js",
   "scripts": {
-    "analyze": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js --analyze",
+    "analyze": "npm run build -- --analyze",
     "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
     "format": "prettier --write \"**/*.{json,md,yml}\"",
     "lint": "eslint --fix --ext={js,jsx} .",
