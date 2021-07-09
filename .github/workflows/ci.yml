@@ -14,19 +14,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Get npm cache directory
-        id: npm-cache-dir
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        id: npm-cache
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          path: ${{ steps.npm-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: '14'
+          cache: 'npm'
 
       - name: Install
         run: npm ci
