@@ -7,12 +7,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths');
 
 module.exports = {
-  entry: [path.join(paths.src, 'index.jsx')],
+  entry: {
+    main: path.join(paths.src, 'index.jsx'),
+  },
 
-  output: {
-    path: paths.build,
-    filename: '[name].bundle.js',
-    publicPath: '/',
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 
   plugins: [
@@ -44,15 +46,14 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        resolve: { extensions: ['.js', '.jsx'] },
         use: ['babel-loader'],
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        test: /\.(ico|gif|png|jpg|jpeg)$/i,
         type: 'asset/resource',
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        test: /\.(woff2?|eot|ttf|otf|svg)$/,
         exclude: path.resolve(__dirname, '../src/assets/embed'),
         type: 'asset/inline',
       },

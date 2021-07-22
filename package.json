@@ -11,7 +11,7 @@
     "analyze": "npm run build -- --analyze",
     "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
     "format": "prettier --check \"**/*.{json,yml,yaml,md}\"",
-    "format:write": "prettier --write \"**/*.{json,yml,yaml,md}\"",
+    "format:fix": "prettier --write \"**/*.{json,yml,yaml,md}\"",
     "lint": "eslint --ignore-path .gitignore --ext js,jsx .",
     "lint:fix": "eslint --ignore-path .gitignore --fix --ext js,jsx .",
     "start": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev.js",
