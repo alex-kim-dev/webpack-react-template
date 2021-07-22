@@ -33,7 +33,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       title: 'Webpack react template',
-      favicon: path.join(paths.src, 'images/favicon.png'),
+      favicon: path.join(paths.src, 'assets/favicon.png'),
       template: path.join(paths.src, 'template.html'),
       filename: 'index.html',
     }),
@@ -53,21 +53,21 @@ module.exports = {
       },
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-        exclude: path.resolve(__dirname, '../src/images/embed'),
+        exclude: path.resolve(__dirname, '../src/assets/embed'),
         type: 'asset/inline',
       },
       {
         test: /\.svg$/,
-        include: path.resolve(__dirname, '../src/images/embed'),
+        include: path.resolve(__dirname, '../src/assets/embed'),
         use: ['@svgr/webpack'],
       },
     ],
   },
 
   resolve: {
-    // for suggestions in Vscode add these paths to the `jsconfig.json`
     alias: {
-      '@': path.resolve(__dirname, '../src'),
+      '~src': path.resolve(__dirname, '../src'),
+      '~assets': path.resolve(__dirname, '../src/assets'),
     },
     extensions: ['.js', '.jsx'],
   },
