@@ -15,7 +15,8 @@
     "lint": "eslint --ignore-path .gitignore --ext js,jsx .",
     "lint:fix": "eslint --ignore-path .gitignore --fix --ext js,jsx .",
     "start": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-caniuse": "npx browserslist --update-db"
   },
   "keywords": [
     "webpack 5",

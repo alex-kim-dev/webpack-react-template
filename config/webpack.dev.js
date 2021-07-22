@@ -9,6 +9,9 @@ const common = require('./webpack.common');
 module.exports = merge(common, {
   mode: 'development',
 
+  // FIXME use 'browserslist:development' after upgrading webpack-dev-server@4
+  target: 'web',
+
   devtool: 'inline-source-map',
 
   output: {
