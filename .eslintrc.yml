@@ -11,6 +11,9 @@ rules:
   simple-import-sort/imports: error
   simple-import-sort/exports: error
   sort-imports: off
+  import/no-duplicates:
+    - error
+    - considerQueryString: true
   import/order: off
   react/react-in-jsx-scope: off
 

@@ -44,25 +44,33 @@ module.exports = {
   ],
 
   module: {
+    generator: {
+      'asset/resource': {
+        filename: 'assets/[hash][ext][query]',
+      },
+    },
+
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: ['babel-loader'],
+        include: path.resolve(__dirname, '../src'),
+        use: 'babel-loader',
       },
       {
-        test: /\.(ico|gif|png|jpg|jpeg)$/,
+        test: /\.(ico|gif|png|jpe?g)$/,
         type: 'asset/resource',
       },
       {
-        test: /\.(woff2?|eot|ttf|otf|svg)$/,
-        exclude: path.resolve(__dirname, '../src/assets/embed'),
-        type: 'asset/inline',
+        test: /\.svg$/,
+        oneOf: [
+          { resourceQuery: /^$/, use: '@svgr/webpack' },
+          { resourceQuery: /^\?file$/, type: 'asset/resource' },
+          { resourceQuery: /^\?inline$/, type: 'asset/inline' },
+        ],
       },
       {
-        test: /\.svg$/,
-        include: path.resolve(__dirname, '../src/assets/embed'),
-        use: ['@svgr/webpack'],
+        test: /\.(woff2?|eot|ttf|otf)$/,
+        type: 'asset/resource',
       },
     ],
   },
