@@ -9,12 +9,12 @@
   "bugs": "https://github.com/Alex-K1m/webpack-react-template/issues",
   "scripts": {
     "analyze": "npm run build -- --analyze",
-    "build": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
+    "build": "webpack --config ./config/webpack.prod.js",
     "format": "prettier --check \"**/*.{json,yml,yaml,md}\"",
     "format:fix": "prettier --write \"**/*.{json,yml,yaml,md}\"",
     "lint": "eslint --ignore-path .gitignore --ext js,jsx .",
     "lint:fix": "eslint --ignore-path .gitignore --fix --ext js,jsx .",
-    "start": "cross-env NODE_ENV=development webpack serve --config ./config/webpack.dev.js",
+    "start": "webpack serve --config ./config/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-caniuse": "npx browserslist --update-db"
   },
@@ -37,7 +37,6 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^9.0.0",
-    "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
     "css-minimizer-webpack-plugin": "^3.0.1",
     "eslint": "^7.29.0",
