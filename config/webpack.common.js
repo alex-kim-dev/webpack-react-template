@@ -1,6 +1,5 @@
 const path = require('path');
 
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -11,6 +10,10 @@ module.exports = {
     main: path.join(paths.src, 'index.jsx'),
   },
 
+  output: {
+    clean: true,
+  },
+
   optimization: {
     splitChunks: {
       chunks: 'all',
@@ -18,8 +21,6 @@ module.exports = {
   },
 
   plugins: [
-    new CleanWebpackPlugin(),
-
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -49,7 +50,7 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.(ico|gif|png|jpg|jpeg)$/i,
+        test: /\.(ico|gif|png|jpg|jpeg)$/,
         type: 'asset/resource',
       },
       {
