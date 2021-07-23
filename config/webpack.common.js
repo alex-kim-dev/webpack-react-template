@@ -12,6 +12,7 @@ module.exports = {
 
   output: {
     clean: true,
+    hashDigestLength: 10,
   },
 
   optimization: {
