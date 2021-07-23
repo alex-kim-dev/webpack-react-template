@@ -10,7 +10,7 @@ module.exports = merge(common, {
 
   target: 'browserslist:production',
 
-  devtool: false,
+  devtool: 'source-map',
 
   output: {
     path: paths.build,
