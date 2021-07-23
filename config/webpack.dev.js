@@ -12,7 +12,7 @@ module.exports = merge(common, {
   // FIXME use 'browserslist:development' after upgrading webpack-dev-server@4
   target: 'web',
 
-  devtool: 'inline-source-map',
+  devtool: 'eval-cheap-module-source-map',
 
   output: {
     path: paths.build,
@@ -26,6 +26,7 @@ module.exports = merge(common, {
     compress: true,
     hot: true,
     port: 8080,
+    stats: 'minimal',
   },
 
   plugins: [
@@ -47,12 +48,5 @@ module.exports = merge(common, {
         use: ['style-loader', 'css-loader'],
       },
     ],
-  },
-
-  cache: {
-    type: 'filesystem',
-    buildDependencies: {
-      config: [__filename],
-    },
   },
 });

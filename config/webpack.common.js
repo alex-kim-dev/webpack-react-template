@@ -15,12 +15,6 @@ module.exports = {
     hashDigestLength: 10,
   },
 
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-    },
-  },
-
   plugins: [
     new CopyWebpackPlugin({
       patterns: [
@@ -73,6 +67,14 @@ module.exports = {
         type: 'asset/resource',
       },
     ],
+  },
+
+  optimization: {
+    moduleIds: 'deterministic',
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 
   resolve: {
