@@ -14,6 +14,7 @@
     "format:fix": "prettier --write \"**/*.{json,yml,yaml,md}\"",
     "lint": "eslint --ignore-path .gitignore --ext js,jsx .",
     "lint:fix": "eslint --ignore-path .gitignore --fix --ext js,jsx .",
+    "serve": "lite-server --baseDir ./dist",
     "start": "webpack serve --config ./config/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-caniuse": "npx browserslist --update-db"
@@ -50,6 +51,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "html-webpack-plugin": "^5.3.2",
+    "lite-server": "^2.6.1",
     "mini-css-extract-plugin": "^1.6.0",
     "prettier": "^2.3.1",
     "prettier-plugin-package": "^1.3.0",
