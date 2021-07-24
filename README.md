@@ -7,11 +7,16 @@
 - Webpack 5
   - html template
   - imports images, fonts, css
-    - SVG images in `src/images/embed` are imported as React components
-    - extracts and minifies css for production build
+    - SVG can be imported as
+      - react component `image.svg`
+      - path to a file `image.svg?file`
+      - data uri string `image.svg?inline`
+  - extracts and minifies css for production build
   - copies files from `static` directory
-  - [fast refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin)
-  - bundle analyzer
+  - uses [react fast refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin)
+  - bundles libraries and webpack runtime into separate chunks
+  - generates source maps for production
+  - includes bundle analyzer
 - React
   - [new JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) (no need to import react for using jsx)
 - Babel
@@ -35,9 +40,13 @@ npm i
 Available npm scripts:
 
 ```sh
-npm start       # start a dev server
-npm run build   # production build, goes into dist folder
-npm run lint    # fixes all fixable js problems
-npm run format  # formats data files (json, yml, md)
-npm run analyze # helps to inspect the bundle content
+npm start              # start a dev server
+npm run build          # production build, goes into dist folder
+npm run serve          # starts simple http server for production build
+npm run lint           # runs eslint without fixing
+npm run lint:fix       # fixes all fixable js issues
+npm run format         # checks formatting without fixing
+npm run format:fix     # formats data files (json, yml, md)
+npm run analyze        # helps to inspect the bundle content
+npm run update-caniuse # updates caniuse database
 ```
