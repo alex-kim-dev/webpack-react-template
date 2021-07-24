@@ -33,7 +33,6 @@ module.exports = {
       title: 'Webpack react template',
       favicon: path.join(paths.src, 'assets/favicon.png'),
       template: path.join(paths.src, 'template.html'),
-      filename: 'index.html',
     }),
   ],
 
@@ -47,7 +46,7 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        include: path.resolve(__dirname, '../src'),
+        include: paths.src,
         use: 'babel-loader',
       },
       {
@@ -79,8 +78,8 @@ module.exports = {
 
   resolve: {
     alias: {
-      '~src': path.resolve(__dirname, '../src'),
-      '~assets': path.resolve(__dirname, '../src/assets'),
+      '~src': paths.src,
+      '~assets': path.join(paths.src, 'assets'),
     },
     extensions: ['.js', '.jsx'],
   },
