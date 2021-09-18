@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const ReactRefreshBabelPlugin = require('react-refresh/babel');
@@ -9,10 +8,11 @@ const common = require('./webpack.common');
 module.exports = merge(common, {
   mode: 'development',
 
-  // FIXME use 'browserslist:development' after upgrading webpack-dev-server@4
-  target: 'web',
+  target: 'browserslist:development',
 
   devtool: 'eval-cheap-module-source-map',
+
+  stats: 'minimal',
 
   output: {
     path: paths.build,
@@ -21,18 +21,14 @@ module.exports = merge(common, {
   },
 
   devServer: {
-    historyApiFallback: true,
-    contentBase: paths.build,
-    compress: true,
+    client: {
+      logging: 'warn',
+    },
     hot: true,
-    port: 8080,
-    stats: 'minimal',
+    historyApiFallback: true,
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new ReactRefreshWebpackPlugin(),
-  ],
+  plugins: [new ReactRefreshWebpackPlugin()],
 
   module: {
     rules: [
