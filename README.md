@@ -1,4 +1,4 @@
-[![Depfu](https://badges.depfu.com/badges/ceccee0a1b5a9569db79f167dcff365e/overview.svg)](https://depfu.com/github/Alex-K1m/webpack-react-template?project_id=22178)
+[![Depfu](https://badges.depfu.com/badges/ceccee0a1b5a9569db79f167dcff365e/overview.svg)](https://depfu.com/github/alex-kim-dev/webpack-react-template?project_id=22178)
 
 # Webpack react template
 
