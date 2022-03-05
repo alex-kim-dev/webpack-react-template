@@ -1,6 +1,6 @@
 {
   "name": "webpack-react-template",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "private": true,
   "description": "Webpack 5 template for React projects.",
   "license": "MIT",
