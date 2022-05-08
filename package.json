@@ -10,8 +10,7 @@
   "scripts": {
     "analyze": "npm run build -- --analyze",
     "build": "cross-env NODE_ENV=production webpack",
-    "format": "prettier --check \"**/*.{json,yml,yaml,md}\"",
-    "format:fix": "prettier --write \"**/*.{json,yml,yaml,md}\"",
+    "format": "prettier --check --ignore-path .gitignore \"**/*.{html,json,yml,md}\"",
     "lint": "eslint --cache --ignore-path .gitignore --ext .ts,.tsx .",
     "prepare": "husky install",
     "serve": "lite-server --baseDir ./dist",
