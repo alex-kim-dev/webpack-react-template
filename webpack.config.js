@@ -25,7 +25,7 @@ module.exports = {
   stats: isDev ? 'minimal' : 'normal',
 
   entry: {
-    main: './src/index.jsx',
+    main: './src/index.tsx',
   },
 
   output: {
@@ -49,7 +49,7 @@ module.exports = {
 
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         include: paths.src,
         use: 'babel-loader',
       },
@@ -113,7 +113,7 @@ module.exports = {
     alias: {
       '~': paths.src,
     },
-    extensions: ['.jsx', '.js'],
+    extensions: ['.tsx', '.ts', '.js'],
   },
 
   optimization: {
