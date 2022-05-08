@@ -18,7 +18,7 @@ rules:
   react/react-in-jsx-scope: off
 
 overrides:
-  - files: config/**/*.js
+  - files: '*.js'
     rules:
       simple-import-sort/imports: off
       import/order:
@@ -29,4 +29,4 @@ overrides:
 settings:
   import/resolver:
     webpack:
-      config: 'config/webpack.common.js'
+      config: 'webpack.config.js'
