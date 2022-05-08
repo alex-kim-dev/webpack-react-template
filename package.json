@@ -1,11 +1,12 @@
 {
   "name": "webpack-react-template",
-  "version": "1.0.10",
+  "version": "1.0.0-alpha.0",
   "private": true,
-  "description": "Webpack 5 template for React projects.",
+  "description": "Webpack 5 template for React Typescript projects.",
   "license": "MIT",
   "repository": "git@github.com:alex-kim-dev/webpack-react-template.git",
-  "author": "Alex Kim <45559664+alex-kim-dev@users.noreply.github.com>",
+  "author": "Alex Kim (https://github.com/alex-kim-dev)",
+  "homepage": "https://alex-kim-dev.github.io/webpack-react-template#readme",
   "bugs": "https://github.com/alex-kim-dev/webpack-react-template/issues",
   "scripts": {
     "analyze": "npm run build -- --analyze",
@@ -16,13 +17,9 @@
     "serve": "webpack serve --history-api-fallback --static-directory ./dist",
     "start": "webpack serve --hot",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "typecheck": "tsc",
     "update-caniuse": "npx browserslist --update-db"
   },
-  "keywords": [
-    "webpack 5",
-    "template",
-    "react"
-  ],
   "dependencies": {
     "react": "18.1.0",
     "react-dom": "18.1.0"
