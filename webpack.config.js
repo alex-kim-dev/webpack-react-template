@@ -25,7 +25,7 @@ module.exports = {
   stats: isDev ? 'minimal' : 'normal',
 
   entry: {
-    main: './src/index.tsx',
+    main: './src/main.tsx',
   },
 
   output: {
@@ -69,7 +69,7 @@ module.exports = {
         test: /\.svg$/,
         oneOf: [
           { resourceQuery: /^$/, use: '@svgr/webpack' },
-          { resourceQuery: /^\?file$/, type: 'asset/resource' },
+          { resourceQuery: /^\?url$/, type: 'asset/resource' },
           { resourceQuery: /^\?inline$/, type: 'asset/inline' },
         ],
       },
@@ -96,7 +96,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       title: 'Webpack react template',
-      favicon: path.join(paths.src, 'assets', 'favicon.png'),
+      favicon: path.join(paths.src, 'favicon.png'),
       template: path.join(paths.src, 'template.html'),
     }),
 
