@@ -1,16 +1,15 @@
-import '~/App.css';
-
 import { useState } from 'react';
 
+import css from '~/App.module.css';
 import Logo from '~/logo.svg';
 
 export const App = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <div className='wrapper'>
-      <header className='header'>
-        <Logo className='logo' />
+    <div className={css.wrapper}>
+      <header className={css.header}>
+        <Logo className={css.logo} />
         <p>Hello Webpack + React!</p>
         <p>
           <button type='button' onClick={() => setCount((c) => c + 1)}>
@@ -22,7 +21,7 @@ export const App = () => {
         </p>
         <p>
           <a
-            className='link'
+            className={css.link}
             href='https://reactjs.org'
             rel='noopener noreferrer'
             target='_blank'>
@@ -30,7 +29,7 @@ export const App = () => {
           </a>
           {' | '}
           <a
-            className='link'
+            className={css.link}
             href='https://webpack.js.org/configuration/'
             rel='noopener noreferrer'
             target='_blank'>

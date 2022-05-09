@@ -1,5 +1,7 @@
 /// <reference types="webpack/module" />
 
+declare module '*.module.css';
+
 declare module '*.svg' {
   import React from 'react';
 
