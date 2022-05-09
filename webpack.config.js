@@ -31,7 +31,7 @@ module.exports = {
   output: {
     clean: true,
     hashDigestLength: 10,
-    filename: 'js/[name].[contenthash].bundle.js',
+    filename: 'js/[name].[contenthash].js',
     publicPath: '/',
   },
 
@@ -117,10 +117,7 @@ module.exports = {
   },
 
   optimization: {
-    moduleIds: 'deterministic',
     runtimeChunk: 'single',
-    splitChunks: { chunks: 'all' },
-    minimize: isProd,
-    minimizer: ['...', isProd && new CssMinimizerPlugin()].filter(Boolean),
+    minimizer: ['...', new CssMinimizerPlugin()],
   },
 };
