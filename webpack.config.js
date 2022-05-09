@@ -54,11 +54,12 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.css$/,
+        test: /\.s?css$/,
         use: [
           isProd && MiniCssExtractPlugin.loader,
           isDev && 'style-loader',
           'css-loader',
+          'sass-loader',
         ].filter(Boolean),
       },
       {
