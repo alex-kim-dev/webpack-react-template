@@ -9,3 +9,13 @@ declare module '*.svg' {
   const SVG: React.FC<React.SVGProps<SVGSVGElement> & { title?: string }>;
   export default SVG;
 }
+
+declare module '*.svg?url' {
+  const svg = 'SvgURL';
+  export default svg;
+}
+
+declare module '*.svg?inline' {
+  const svg = 'SvgInline';
+  export default svg;
+}
