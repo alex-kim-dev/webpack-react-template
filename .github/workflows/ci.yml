@@ -3,12 +3,23 @@ name: CI
 on:
   push:
     branches: [main]
+    paths-ignore: ['*.md', LICENSE, .gitignore, .husky/**]
   pull_request:
     branches: [main]
+    paths-ignore: ['*.md', LICENSE, .gitignore, .husky/**]
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+env:
+  HUSKY: 0
+  NODE_VERSION: 16
+
 jobs:
-  lint-and-build:
+  cache-deps:
+    name: Install & cache dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,16 +28,104 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
 
       - name: Install
         run: npm ci
 
-      - name: Lint
-        run: |
-          npm run lint
-          npm run format
+  lint:
+    name: Lint & format
+    needs: cache-deps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install
+        id: install
+        run: npm ci
+
+      - name: Lint typescript
+        run: npm run lint:ts
+
+      - name: Lint styles
+        if: always() && steps.install.outcome == 'success'
+        run: npm run lint:styles
+
+      - name: Format
+        if: always() && steps.install.outcome == 'success'
+        run: npm run format
+
+  typecheck:
+    name: Typecheck
+    needs: cache-deps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+  test:
+    name: Test
+    needs: cache-deps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        run: npm run test:ci
+
+  build:
+    name: Build
+    needs: [lint, typecheck, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install
+        run: npm ci
 
       - name: Build
         run: npm run build
+
+      - name: Upload build
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: dist
+          retention-days: 7
