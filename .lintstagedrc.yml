@@ -1,0 +1,12 @@
+'*.{j,t}s{,x}':
+  - eslint --fix
+
+'*.ts{,x}':
+  - tsc-files --noEmit src/global.d.ts
+  - jest --findRelatedTests --passWithNoTests
+
+'*.{s,}css':
+  - stylelint --fix
+
+'*.{html,json,yml,md}':
+  - prettier --write
