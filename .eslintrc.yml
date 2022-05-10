@@ -49,3 +49,15 @@ rules:
   simple-import-sort/exports: warn
   simple-import-sort/imports: warn
   sort-imports: off
+
+overrides:
+  - files:
+      - '**/__tests__/**/*.ts?(x)'
+      - '**/?(*.)+(spec|test).ts?(x)'
+      - jest.setup.js
+    extends:
+      - plugin:jest/recommended
+      - plugin:jest-dom/recommended
+      - plugin:testing-library/react
+    env:
+      jest: true

@@ -10,6 +10,6 @@ module.exports = (api) => {
         { development: !api.env('production'), runtime: 'automatic' },
       ],
     ],
-    ...(!api.env('production') && { plugins: ['react-refresh/babel'] }),
+    ...(api.env('development') && { plugins: ['react-refresh/babel'] }),
   };
 };
