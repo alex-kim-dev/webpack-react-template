@@ -15,6 +15,7 @@ const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
 const mode = isDev ? 'development' : 'production';
 
+/** @type {import('webpack').Configuration} */
 module.exports = {
   mode,
 
