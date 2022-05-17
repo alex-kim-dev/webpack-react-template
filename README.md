@@ -1,4 +1,5 @@
 [![Depfu](https://badges.depfu.com/badges/ceccee0a1b5a9569db79f167dcff365e/overview.svg)](https://depfu.com/github/alex-kim-dev/webpack-react-template?project_id=22178)
+[![CI](https://github.com/alex-kim-dev/webpack-react-template/actions/workflows/ci.yml/badge.svg)](https://github.com/alex-kim-dev/webpack-react-template/actions/workflows/ci.yml)
 
 # Webpack react template
 
@@ -6,47 +7,59 @@
 
 - Webpack 5
   - html template
-  - imports images, fonts, css
-    - SVG can be imported as
-      - react component `image.svg`
-      - path to a file `image.svg?file`
-      - data uri string `image.svg?inline`
-  - extracts and minifies css for production build
+  - import aliases
+  - imports images, fonts, css/sass (with modules support)
+  - extracts and minifies styles for production build
   - copies files from `static` directory
-  - uses [react fast refresh](https://github.com/pmmmwh/react-refresh-webpack-plugin)
-  - bundles libraries and webpack runtime into separate chunks
   - generates source maps for production
   - includes bundle analyzer
+- Typescript
 - React
-  - [new JSX transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) (no need to import react for using jsx)
-- Babel
-  - preset env
-  - preset react
-  - class properties
-- Eslint
-  - preset airbnb
-  - intergration with Prettier
-  - plugins: import, jsx-a11y, hooks, import sort
-- Prettier
+- React Testing Library, test utils
+- Babel: react, typescript, env presets
+- Eslint: airbnb config, prettier integration, import & props sorting
+- Stylelint: standard config, prettier integration, css props sorting
+- Editorconfig & Prettier
+- Commitlint: conventional commits
+- pre-commit hook for linting/testing/typechecking staged files
+- CI on push & pr, in-progress workflow cancelling if a new one is queued, dependencies caching
+- pinned versions of dependencies
 
 ## Usage
 
-Click on the `Use this template` green button at the top - this will make a new github repo with clean commit history. Then clone it and install dependencies:
+1. Click the `Use this template` button or clone locally:
 
-```sh
-npm i
-```
+   ```sh
+   npx degit alex-kim-dev/webpack-react-template webpack-project
+   ```
 
-Available npm scripts:
+   Both methods will clean the git history.
 
-```sh
-npm start              # start a dev server
-npm run build          # production build, goes into dist folder
-npm run serve          # starts simple http server for production build
-npm run lint           # runs eslint without fixing
-npm run lint:fix       # fixes all fixable js issues
-npm run format         # checks formatting without fixing
-npm run format:fix     # formats data files (json, yml, md)
-npm run analyze        # helps to inspect the bundle content
-npm run update-caniuse # updates caniuse database
+   _[degit](https://github.com/Rich-Harris/degit)_
+
+2. Update & install the dependencies:
+
+   ```sh
+   npx ncu -u && npm i
+   ```
+
+   _[npm-check-updates](https://github.com/raineorshine/npm-check-updates)_
+
+3. Change the name, description, author, license, links in `package.json`.
+4. Check out the available scripts in `package.json` or execute `npm run`.
+
+### Import aliases
+
+Includes only one alias: `~/` is mapped to `src/` dir. To add more, edit these:
+
+- `path` in `tsconfig.json`
+- `alias` in `webpack.config.js`
+- `moduleNameMapper` in `jest.config.json` - order matters
+
+### Importing SVG
+
+```js
+import Svg from './icon.svg'; // react component
+import svg from './icon.svg?url'; // path to the file
+import svg from './icon.svg?inline'; // data uri string
 ```
