@@ -24,6 +24,7 @@
     "update-caniuse": "npx browserslist --update-db"
   },
   "dependencies": {
+    "@types/node": "17.0.36",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
