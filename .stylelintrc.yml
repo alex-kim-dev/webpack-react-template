@@ -1,4 +1,9 @@
 extends:
-  - stylelint-config-standard
+  - stylelint-config-standard-scss
   - stylelint-config-idiomatic-order
   - stylelint-prettier/recommended
+
+rules:
+  selector-class-pattern:
+    - ^[a-z][a-z0-9]*(?:[A-Z]+[a-z0-9]*)*$ # camelCase
+    - resolveNestedSelectors: true
