@@ -8,13 +8,13 @@ extends:
   - plugin:prettier/recommended
 
 env:
-  es2021: true
+  es2022: true
   browser: true
 
 parser: '@typescript-eslint/parser'
 
 parserOptions:
-  ecmaVersion: 2021
+  ecmaVersion: 2022
   project:
     - tsconfig.json
 
@@ -35,16 +35,23 @@ rules:
         - '**/?(*.)+(spec|test).ts?(x)'
   import/order: off
   import/prefer-default-export: off
+  jsx-a11y/label-has-associated-control:
+    - error
+    - assert: either
   react/function-component-definition:
     - error
     - namedComponents: arrow-function
       unnamedComponents: arrow-function
+  react/jsx-props-no-spreading: off
   react/jsx-sort-props:
     - warn
     - ignoreCase: true
       callbacksLast: true
       shorthandLast: true
       reservedFirst: true
+  react/require-default-props:
+    - error
+    - functions: defaultArguments
   react/prop-types: off
   simple-import-sort/exports: warn
   simple-import-sort/imports: warn
