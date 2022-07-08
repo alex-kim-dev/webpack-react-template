@@ -59,7 +59,17 @@ module.exports = {
         use: [
           isProd && MiniCssExtractPlugin.loader,
           isDev && 'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                auto: true,
+                localIdentName: isDev
+                  ? '[local]--[hash:base64:5]'
+                  : '[hash:base64]',
+              },
+            },
+          },
           'sass-loader',
         ].filter(Boolean),
       },
