@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "git@github.com:alex-kim-dev/webpack-react-template.git",
   "author": "Alex Kim (https://github.com/alex-kim-dev)",
-  "homepage": "https://alex-kim-dev.github.io/webpack-react-template#readme",
+  "homepage": "https://github.com/alex-kim-dev/webpack-react-template#readme",
   "bugs": "https://github.com/alex-kim-dev/webpack-react-template/issues",
   "scripts": {
     "analyze": "npm run build -- --analyze",
