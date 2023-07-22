@@ -12,5 +12,5 @@ export default new Proxy(
       }
       return key;
     },
-  }
+  },
 );
