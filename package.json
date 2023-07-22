@@ -11,7 +11,7 @@
   "scripts": {
     "analyze": "npm run build -- --analyze",
     "build": "cross-env NODE_ENV=production webpack",
-    "format": "prettier --check --ignore-path .gitignore \"**/*.{html,json,yml,md}\"",
+    "format": "prettier --check \"**/*.{html,json,yml,md}\"",
     "lint:styles": "stylelint --cache --ignore-path .gitignore \"**/*.{css,scss}\"",
     "lint:ts": "eslint --cache --ignore-path .gitignore --ext .ts,.tsx .",
     "prepare": "husky install",
