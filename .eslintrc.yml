@@ -8,13 +8,13 @@ extends:
   - plugin:prettier/recommended
 
 env:
-  es2022: true
+  es2023: true
   browser: true
 
 parser: '@typescript-eslint/parser'
 
 parserOptions:
-  ecmaVersion: 2022
+  ecmaVersion: 2023
   project:
     - tsconfig.json
 

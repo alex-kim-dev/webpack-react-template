@@ -15,7 +15,7 @@ concurrency:
 
 env:
   HUSKY: 0
-  NODE_VERSION: 16
+  NODE_VERSION: 18
 
 jobs:
   cache-deps:
