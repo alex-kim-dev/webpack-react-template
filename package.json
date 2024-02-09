@@ -14,7 +14,7 @@
     "format": "prettier --check \"**/*.{html,json,yml,md}\"",
     "lint:styles": "stylelint --cache --ignore-path .gitignore \"**/*.{css,scss}\"",
     "lint:ts": "eslint --cache --ignore-path .gitignore --ext .ts,.tsx .",
-    "prepare": "husky install",
+    "prepare": "husky",
     "serve": "webpack serve --history-api-fallback --static-directory ./dist",
     "start": "webpack serve --hot",
     "test": "jest --watch",
